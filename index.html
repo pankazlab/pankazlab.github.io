@@ -49,6 +49,7 @@ section{padding:48px 0;border-top:1px solid var(--line)}
 .stream h3{margin:0}.tag{color:var(--mute);font-size:.9rem}
 .team{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
 .person{text-align:left}.av{width:100%;aspect-ratio:1;border-radius:14px;margin-bottom:12px;display:grid;place-items:center;font:700 2.4rem "Bricolage Grotesque",sans-serif;color:var(--bg)}
+.personPast{text-align:left}.av{width:100%;aspect-ratio:1;border-radius:14px;margin-bottom:12px;display:grid;place-items:center;font:700 2.4rem "Bricolage Grotesque",sans-serif;color:var(--bg)}
 .pub{display:grid;grid-template-columns:64px 1fr;gap:16px;padding:20px 0;border-top:1px solid var(--line)}
 .pub b{font:700 1.3rem "Bricolage Grotesque",sans-serif;color:var(--a)}.pub p{margin:0;color:var(--mute)}
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
@@ -56,6 +57,7 @@ section{padding:48px 0;border-top:1px solid var(--line)}
 .chips button[aria-pressed=true]{background:var(--a);border-color:var(--a);color:var(--bg)}
 label{display:block;font-weight:500;margin:0 0 16px}
 input,textarea,select{display:block;width:100%;max-width:480px;font:inherit;padding:10px 12px;margin-top:6px;border:1.5px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink)}
+
 .slider{position:relative;margin:24px 0 40px}
 .track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border:1px solid var(--line);border-radius:16px;background:var(--panel)}
 .track::-webkit-scrollbar{display:none}
@@ -63,6 +65,8 @@ input,textarea,select{display:block;width:100%;max-width:480px;font:inherit;padd
 .slide svg{display:block;width:100%;height:auto;max-height:340px}
 .slide img{display:block;width:100%;height:320px;object-fit:cover}
 .slide figcaption{position:absolute;left:20px;bottom:14px;font:500 .95rem "Bricolage Grotesque",sans-serif;color:var(--mute)}
+
+
 .sbtn{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:1.6rem;line-height:1;cursor:pointer}
 .prev{left:12px}.next{right:12px}
 .dots{display:flex;justify-content:center;gap:8px;margin-top:14px}
@@ -85,18 +89,31 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--mute);font-si
 </style>
 </head>
 <body>
-<header><div class="wrap"><nav aria-label="Main">
-<a class="logo brand" href="#home" aria-label="PankazLab, The Data Biology Group, home"><svg id="mark" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="none" stroke="var(--a)" stroke-width="2.5"/><g stroke="var(--c)" stroke-width=".9"><line x1="15.2" y1="18.4" x2="24" y2="12.8"/><line x1="15.2" y1="18.4" x2="24" y2="24"/><line x1="15.2" y1="18.4" x2="24" y2="35.2"/><line x1="15.2" y1="29.6" x2="24" y2="12.8"/><line x1="15.2" y1="29.6" x2="24" y2="24"/><line x1="15.2" y1="29.6" x2="24" y2="35.2"/><line x1="24" y1="12.8" x2="32.8" y2="18.4"/><line x1="24" y1="12.8" x2="32.8" y2="29.6"/><line x1="24" y1="24" x2="32.8" y2="18.4"/><line x1="24" y1="24" x2="32.8" y2="29.6"/><line x1="24" y1="35.2" x2="32.8" y2="18.4"/><line x1="24" y1="35.2" x2="32.8" y2="29.6"/></g><path d="M15.2 29.6 L24 24 L32.8 18.4" fill="none" stroke="var(--b)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><g fill="var(--a)"><circle cx="15.2" cy="18.4" r="2.3"/><circle cx="15.2" cy="29.6" r="2.3"/><circle cx="24" cy="12.8" r="2.3"/><circle cx="24" cy="24" r="2.3"/><circle cx="24" cy="35.2" r="2.3"/><circle cx="32.8" cy="18.4" r="2.3"/><circle cx="32.8" cy="29.6" r="2.3"/></g></svg><span class="bt"><span>Pankaz<i>Lab</i></span><small>The Data Biology Group</small></span></a>
-<div class="links"><a href="#home">Home</a><a href="#research">Research</a><a href="#people">People</a><a href="#publications">Publications</a><a href="https://example.com/blog" target="_blank" rel="noopener noreferrer">Blog <span aria-hidden="true">↗</span><span class="sr" style="position:absolute;left:-9999px">(opens in a new tab)</span></a><a href="#join">Join us</a></div>
-</nav></div></header>
+<header>
+  <div class="wrap">
+    <nav aria-label="Main">
+    <a class="logo brand" href="#home" aria-label="PankazLab, The Data Biology Group, home"><svg id="mark" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="none" stroke="var(--a)" stroke-width="2.5"/><g stroke="var(--c)" stroke-width=".9"><line x1="15.2" y1="18.4" x2="24" y2="12.8"/><line x1="15.2" y1="18.4" x2="24" y2="24"/><line x1="15.2" y1="18.4" x2="24" y2="35.2"/><line x1="15.2" y1="29.6" x2="24" y2="12.8"/><line x1="15.2" y1="29.6" x2="24" y2="24"/><line x1="15.2" y1="29.6" x2="24" y2="35.2"/><line x1="24" y1="12.8" x2="32.8" y2="18.4"/><line x1="24" y1="12.8" x2="32.8" y2="29.6"/><line x1="24" y1="24" x2="32.8" y2="18.4"/><line x1="24" y1="24" x2="32.8" y2="29.6"/><line x1="24" y1="35.2" x2="32.8" y2="18.4"/><line x1="24" y1="35.2" x2="32.8" y2="29.6"/></g><path d="M15.2 29.6 L24 24 L32.8 18.4" fill="none" stroke="var(--b)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><g fill="var(--a)"><circle cx="15.2" cy="18.4" r="2.3"/><circle cx="15.2" cy="29.6" r="2.3"/><circle cx="24" cy="12.8" r="2.3"/><circle cx="24" cy="24" r="2.3"/><circle cx="24" cy="35.2" r="2.3"/><circle cx="32.8" cy="18.4" r="2.3"/><circle cx="32.8" cy="29.6" r="2.3"/></g></svg><span class="bt"><span>Pankaz<i>Lab</i></span><small>The Data Biology Group</small></span></a>
+      <div class="links" style="margin-left: auto;">
+        <a href="#home">Home</a>
+        <a href="#research">Research</a>
+        <a href="#people">People</a>
+        <a href="#publications">Publications</a>
+        <a href="https://example.com/blog" target="_blank" rel="noopener noreferrer">Blog<span aria-hidden="true">↗</span><span class="sr" style="position:absolute;left:-9999px">(opens in a new tab)</span></a>
+        <a href="#join">Join us</a>
+      </div>
+      <a href="https://uohyd.ac.in" target="_blank"><img src="./images/uni_logo.png" style="height:50px"></img></a>
+    </nav>
+  </div>
+</header>
 
 <main class="wrap">
 <!-- HOME -->
 <div class="page" id="home">
 <div class="hero">
-<div><h1>Biology, read as data.</h1>
+<div><h2>Biology, read as data</h2>
 <p class="lead">We, <b>The Data Biology Group</b>, are a team of interdisciplinary researchers that combines computational modeling, biological data science and experimental biology to understand complex biological systems and disease mechanisms.</p>
-<a class="btn" href="#research">Explore our research</a><a class="btn alt" href="#join">Join the group</a></div>
+<a class="btn" href="#research">Explore our research</a><a class="btn alt" href="#join">Join the group</a>
+</div>
 <canvas id="helix" role="img" aria-label="Animated double helix of data points in three colors"></canvas>
 </div>
 <div class="def"><div><h2>What is Data Biology?</h2>
@@ -131,7 +148,32 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--mute);font-si
 <div class="page" id="research">
 <section style="border:0"><h2>Research</h2>
 <div class="slider" role="region" aria-roledescription="carousel" aria-label="Research highlights">
-<div class="track" id="track" tabindex="0"><figure class="slide" role="group" aria-roledescription="slide" aria-label="1 of 4"><svg viewBox="0 0 800 320" role="img" aria-label="Illustration: Progression of Parkinson’s Disease"><path d="M0 260 H800" stroke="var(--line)" stroke-width="2" stroke-dasharray="4 8"/><path d="M60 80 C200 90 300 110 400 160 S650 235 740 245" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke="var(--a)"/><g fill="var(--b)"><circle cx="60" cy="80" r="9"/><circle cx="200" cy="93" r="9"/><circle cx="330" cy="125" r="9"/><circle cx="470" cy="185" r="9"/><circle cx="600" cy="220" r="9"/><circle cx="740" cy="245" r="9"/></g></svg><figcaption>01 · Progression of Parkinson’s Disease</figcaption></figure><figure class="slide" role="group" aria-roledescription="slide" aria-label="2 of 4"><svg viewBox="0 0 800 320" role="img" aria-label="Illustration: Cardiac Pathology"><path d="M30 170 H220 l20 -22 l20 22 H340 l20 36 l40 -130 l40 180 l20 -86 H520 l20 -26 l30 26 H770" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke="var(--b)"/><path d="M30 250 H770" stroke="var(--line)" stroke-width="2" stroke-dasharray="4 8"/></svg><figcaption>02 · Cardiac Pathology</figcaption></figure><figure class="slide" role="group" aria-roledescription="slide" aria-label="3 of 4"><svg viewBox="0 0 800 320" role="img" aria-label="Illustration: AI/ML for Discovery"><g id="nn"></g></svg><figcaption>03 · AI/ML for Discovery</figcaption></figure><figure class="slide" role="group" aria-roledescription="slide" aria-label="4 of 4"><svg viewBox="0 0 800 320" role="img" aria-label="Illustration: Theoretical and Computational Models"><path d="M30 160 C110 40 190 40 270 160 S430 280 510 160 S690 40 770 160" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke="var(--c)"/><path d="M30 160 C110 280 190 280 270 160 S430 40 510 160 S690 280 770 160" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke="var(--a)" stroke-dasharray="2 10"/><g fill="var(--b)"><circle cx="270" cy="160" r="10"/><circle cx="510" cy="160" r="10"/><circle cx="30" cy="160" r="10"/><circle cx="770" cy="160" r="10"/></g></svg><figcaption>04 · Theoretical and Computational Models</figcaption></figure></div>
+<div class="track" id="track" tabindex="0">
+  <figure class="slide" role="group" aria-roledescription="slide" aria-label="1 of 4">
+    <!--<svg viewBox="0 0 800 320" role="img" aria-label="Illustration: Progression of Parkinson’s Disease">
+      <path d="M0 260 H800" stroke="var(--line)" stroke-width="2" stroke-dasharray="4 8"/>
+      <path d="M60 80 C200 90 300 110 400 160 S650 235 740 245" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke="var(--a)"/>
+      <g fill="var(--b)"> <circle cx="60" cy="80" r="9"/> <circle cx="200" cy="93" r="9"/> <circle cx="330" cy="125" r="9"/> <circle cx="470" cy="185" r="9"/> <circle cx="600" cy="220" r="9"/> <circle cx="740" cy="245" r="9"/> </g>
+    </svg>-->
+    <img src="./images/network.png" />
+    <figcaption>Progression of Parkinson’s Disease</figcaption>
+  </figure>
+
+  <figure class="slide" role="group" aria-roledescription="slide" aria-label="2 of 4">
+    <svg viewBox="0 0 800 320" role="img" aria-label="Illustration: Cardiac Pathology"><path d="M30 170 H220 l20 -22 l20 22 H340 l20 36 l40 -130 l40 180 l20 -86 H520 l20 -26 l30 26 H770" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke="var(--b)"/><path d="M30 250 H770" stroke="var(--line)" stroke-width="2" stroke-dasharray="4 8"/></svg>
+    <figcaption>02 · Cardiac Pathology</figcaption>
+  </figure>
+
+  <figure class="slide" role="group" aria-roledescription="slide" aria-label="3 of 4">
+    <svg viewBox="0 0 800 320" role="img" aria-label="Illustration: AI/ML for Discovery"><g id="nn"></g></svg>
+    <figcaption>03 · AI/ML for Discovery</figcaption>
+  </figure>
+
+  <figure class="slide" role="group" aria-roledescription="slide" aria-label="4 of 4">
+    <svg viewBox="0 0 800 320" role="img" aria-label="Illustration: Theoretical and Computational Models"><path d="M30 160 C110 40 190 40 270 160 S430 280 510 160 S690 40 770 160" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke="var(--c)"/><path d="M30 160 C110 280 190 280 270 160 S430 40 510 160 S690 280 770 160" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke="var(--a)" stroke-dasharray="2 10"/><g fill="var(--b)"><circle cx="270" cy="160" r="10"/><circle cx="510" cy="160" r="10"/><circle cx="30" cy="160" r="10"/><circle cx="770" cy="160" r="10"/></g></svg>
+    <figcaption>04 · Theoretical and Computational Models</figcaption>
+  </figure>
+</div>
 <button class="sbtn prev" id="prev" aria-label="Previous slide">‹</button><button class="sbtn next" id="next" aria-label="Next slide">›</button>
 <div class="dots" id="dots"></div></div>
 <!-- Placeholder artwork: replace any <svg> inside a .slide with <img src="your-photo.jpg" alt="..."> -->
@@ -156,7 +198,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--mute);font-si
 <div class="page" id="people">
 <section style="border:0"><h2>People</h2>
 <h3>Principal investigator</h3>
-<div class="pi"><div class="person"><div class="av" style="background:var(--a)">PK</div></div>
+<div class="pi"><div class="person"><div class="av" style="background:var(--a)">PSD</div></div>
   <div class="bio">
     <h3>Pankaj Singh Dholaniya, <i> M.Tech., Ph.D.</i> </h3>
     <p class="tag">Assistant Professor
@@ -175,11 +217,35 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--mute);font-si
 </div>
 <h3>Group members</h3>
 <div class="grid team" style="margin-top:16px">
-<div class="person"><div class="av" style="background:var(--b)">AB</div><h3>Name Surname</h3><p class="tag">Postdoctoral researcher</p></div>
-<div class="person"><div class="av" style="background:var(--c)">CD</div><h3>Name Surname</h3><p class="tag">PhD student</p></div>
+<div class="person"><div class="av" style="background:var(--b)">MA</div><h3>Mohammad Ahmad</h3><p class="tag">PhD Student</p></div>
+<div class="person"><div class="av" style="background:var(--c)">ARD</div><h3>A. Renuka Devi</h3><p class="tag">PhD Student</p></div>
+<div class="person"><div class="av" style="background:var(--c)">KB</div><h3>Kridsya Buasra (Nudi)</h3><p class="tag">PhD Student</p></div>
+<div class="person"><div class="av" style="background:var(--c)">V</div><h3>Vidula</h3><p class="tag">Project Student (M.Tech. Bioinformatics)</p></div>
+<div class="person"><div class="av" style="background:var(--c)">V</div><h3>Varsha</h3><p class="tag">Project Student (M.Tech. Bioinformatics)</p></div>
+<div class="person"><div class="av" style="background:var(--c)">M</div><h3>Manas</h3><p class="tag">Project Student (M.Tech. Bioinformatics)</p></div>
+<div class="person"><div class="av" style="background:var(--c)">A</div><h3>Archana</h3><p class="tag">Project Student (M.Sc. Biotech.)</p></div>
+<div class="person"><div class="av" style="background:var(--c)">NA</div><h3>Nishant</h3><p class="tag">Project Student (M.Sc. Biotech. & Bioinfo.)</p></div>
 <div class="person"><div class="av" style="background:var(--ink);color:var(--bg)">EF</div><h3>Name Surname</h3><p class="tag">Research associate</p></div>
-</div></section></div>
 
+</div>
+
+<br /><h3>Past members</h3>
+<hr />
+<div class="grid team" style="margin-top:16px">
+<div class="personPast"><h3>Dr. Neha S</h3><p class="tag"> Postdoc, <br>SRM University, Andhra Pradesh</p></div>
+<div class="personPast"><h3>Dr. MD Zainul Ali</h3><p class="tag"> Postdoc, <br>CDFD, Hyderabad</p></div>
+<div class="personPast"><h3>Samreen Rizvi</h3><p class="tag"> Senior Data Engineer, <br>Regeneron Pharmaceuticals</p></div>
+<div class="personPast"><h3>Krishna Prasad</h3><p class="tag">PhD Student, <br>University of Hyderabad</p></div>
+<div class="personPast"><h3>Rittik Mandal</h3><p class="tag">PhD Student, <br>Northwestern University</p></div>
+<div class="personPast"><h3>Itishree Jali, PhD</h3><p class="tag">Research Scientist, <br>National Institute of Biomedical Genomics, Kalyani, WB</p></div>
+<div class="personPast"><h3>Logapriya R</h3> <p class="tag">Senior Bioinformatics Analyst<br>Medgenome, Bangalore</p></div>
+<div class="personPast"><h3>E Sai Suvani</h3><p class="tag">Joined Reliance FMCG, Hyderabad, and now Central Excise Inspector,<br> Hyderabad GST</p></div>
+<div class="personPast"><h3>Sreenidhi R</h3><p class="tag">Researcher,<br>TCS Research Pune</p></div>
+<div class="personPast"><h3>Prashant Kumar</h3><p class="tag">PhD Student, <br>ICGEB, New Delhi</p></div>
+<div class="personPast"><h3>Mallikarjun Ratnam</h3><p class="tag">Researcher, TCS Research Pune</p></div>
+<div class="personPast"><h3>Name Surname</h3><p class="tag">Research associate</p></div>
+
+</div></section></div>
 <!-- PUBLICATIONS -->
 <div class="page" id="publications">
 <section style="border:0"><h2>Publications</h2>
@@ -207,8 +273,12 @@ https://doi.org/10.3390/biomedicines12061363"  target="_blank">DOI:
 <div class="pub" data-y="Older"><b>2022</b><div><h3>Oxidative phosphorylation mediated pathogenesis of Parkinson's disease and its implication via Akt signaling</h3><p>MD Zainul Ali,  <u>Pankaj Singh Dholaniya<sup>*</sup></u>. <br><i>Neurochemistry International.</i> <a href="https://doi.org/10.1016/j.neuint.2022.105344"  target="_blank">DOI: 10.1016/j.neuint.2022.105344</a></p></div></div>
 <div class="pub" data-y="Older"><b>2022</b><div><h3>Identifying the candidate genes using co-expression, GO, and machine learning techniques for Alzheimer’s disease</h3><p>Shailendra Sahu, <u>Pankaj Singh Dholaniya</u>, T Sobha Rani. <br><i>Network Modeling Analysis in Health Informatics and Bioinformatics.</i> <a href="https://doi.org/10.1007/s13721-021-00349-9"  target="_blank">DOI: 10.1007/s13721-021-00349-9</a></p></div></div>
 <div class="pub" data-y="Older"><b>2022</b><div><h3>The prevailing role of topoisomerase 2 beta and its associated genes in neurons.</h3><p>S Neha, <u>Pankaj Singh Dholaniya<sup>*</sup></u>. <br><i>Molecular Neurobiology.</i> <a href="https://doi.org/10.1007/s12035-021-02561-0"  target="_blank">DOI: 10.1007/s12035-021-02561-0</a></p></div></div>
-<div class="pub" data-y="Older"><b>2022</b><div><h3>Second paper title</h3><p>Author A, Author C, <u>Pankaz<sup>*</sup></u>. <br><i>Journal Name.</i> <a href="#publications"  target="_blank">DOI:</a></p></div></div>
-
+<div class="pub" data-y="Older"><b>2021</b><div><h3>Effect of various sequence descriptors in predicting human proteinprotein interactions using ANN-based prediction models</h3><p><u>Pankaj Singh Dholaniya<sup>*</sup></u>,  Samreen Rizvi. <br><i>Current Bioinformatics.</i> <a href="https://doi.org/10.2174/1574893616666210402114623"  target="_blank">DOI: 10.2174/1574893616666210402114623</a></p></div></div>
+<div class="pub" data-y="Older"><b>2021</b><div><h3>Clinical and whole genome characterization of SARS-CoV-2 in India</h3><p>Radhakrishna Muttineni, Nagamani Kammili, Thrilok Chander Bingi, Raja Rao M, Kalyani Putty, <u>Pankaj Singh Dholaniya</u>, Ravi Kumar Puli, Sunitha Pakalapati, Saritha S, Shekar K, Mallikarjuna Reddy Doodipala, Amit A Upadhyay, Steven E Bosinger, Rama R Amara, Anand K Kondapi. <br><i>PLoS One</i> <a href="https://doi.org/10.1371/journal.pone.0246173"  target="_blank">DOI: 10.1371/journal.pone.0246173</a></p></div></div>
+<div class="pub" data-y="Older"><b>2020</b><div><h3>Reanalysis of genome sequences of tomato accessions and its wild relatives: development of Tomato Genomic Variation (TGV) database integrating SNPs and INDELs polymorphisms</h3><p>Prateek Gupta<sup>1</sup>,  <u>Pankaj Singh Dholaniya<sup>1</sup></u>, Sameera Devulapalli, Nilesh Ramesh Tawari, Yellamaraju Sreelakshmi, Rameshwar Sharma. <br><i>Bioinformatics.</i> <a href="https://doi.org/10.1093/bioinformatics/btaa617"  target="_blank">DOI:10.1093/bioinformatics/btaa617</a></p></div></div>
+<!--
+<div class="pub" data-y="Older"><b>2022</b><div><h3>Title</h3><p>Author A, Author C, <u>Pankaz<sup>*</sup></u>. <br><i>Journal Name.</i> <a href="#publications"  target="_blank">DOI:</a></p></div></div>
+-->
 </div></section></div>
 
 <!-- JOIN -->
