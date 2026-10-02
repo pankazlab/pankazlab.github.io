@@ -72,7 +72,7 @@ input,textarea,select{display:block;width:100%;max-width:480px;font:inherit;padd
 .dots{display:flex;justify-content:center;gap:8px;margin-top:14px}
 .dots button{width:10px;height:10px;padding:0;border-radius:50%;border:0;background:var(--line);cursor:pointer}
 .dots button[aria-current=true]{background:var(--a);width:26px;border-radius:6px}
-.fgrid{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px}
+.fgrid{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:20px}
 .fslot{aspect-ratio:3/2;display:grid;place-items:center;background:var(--panel);border:1.5px dashed var(--line);border-radius:14px;padding:16px;color:var(--mute)}
 .fslot img{max-width:100%;max-height:100%;object-fit:contain}
 .fgrid p{margin:8px 0 0;font-size:.9rem;color:var(--mute);text-align:center}
@@ -140,8 +140,10 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--mute);font-si
 <div class="card"><h3>Experimental Studies</h3><p>Data generation and validation through in-vivo and in-vitro disease models.</p></div>
 </div>
 <section><h2>Latest news</h2>
+<!--
 <div class="pub"><b>Sep 2026</b><div><h3>News headline goes here</h3><p>One sentence on a new paper, grant, award or talk.</p></div></div>
 <div class="pub"><b>Jun 2026</b><div><h3>Another announcement</h3><p>Replace with real lab news.</p></div></div></section>
+-->
 </div>
 
 <!-- RESEARCH -->
@@ -186,11 +188,11 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--mute);font-si
 <p>Our research is supported by the following agencies.</p>
 <!-- Replace <span>Logo</span> with <img src="agency-logo.png" alt="Agency name"> and edit the caption. Copy an <li> to add more. -->
 <ul class="fgrid">
-<li><div class="fslot"><span><img src="./images/DBT-logo.png" style="height:150px" /></span></div><p>DBT-India</p></li>
-<li><div class="fslot"><span><img src="./images/IoE-Logo.jpeg" style="height:150px" /></span></div><p>IoE-UoH</p></li>
-<li><div class="fslot"><span><img src="./images/ANRF-Logo.png" style="height:150px" /></span></div><p>ANRF-India</p></li>
-<li><div class="fslot"><span><img src="./images/UGC-Logo.png" style="height:150px" /></span></div><p>UGC-India</p></li>
-<li><div class="fslot"><span><img src="./images/ICMR-Logo.svg" style="height:150px" /></span></div><p>ICMR-India</p></li>
+<li><div class="fslot"><span><img src="./images/DBT-logo.png" style="height:100px" /></span></div><p>DBT-India</p></li>
+<li><div class="fslot"><span><img src="./images/IoE-Logo.jpeg" style="height:100px" /></span></div><p>IoE-UoH</p></li>
+<li><div class="fslot"><span><img src="./images/ANRF-Logo.png" style="height:100px" /></span></div><p>ANRF-India</p></li>
+<li><div class="fslot"><span><img src="./images/UGC-Logo.png" style="height:100px" /></span></div><p>UGC-India</p></li>
+<li><div class="fslot"><span><img src="./images/ICMR-Logo.svg" style="height:100px" /></span></div><p>ICMR-India</p></li>
 </ul></section>
 </div>
 
@@ -198,7 +200,13 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--mute);font-si
 <div class="page" id="people">
 <section style="border:0"><h2>People</h2>
 <h3>Principal investigator</h3>
-<div class="pi"><div class="person"><div class="av" style="background:var(--a)">PSD</div></div>
+<div class="pi">
+  <div class="person">
+    <div class="av" style="background:var(--a)">
+      <img src="./images/members/PSD-1.jpg" style="width:94%; height:94%; overflow:hidden; position: relative; object-fit: cover;"/>
+      <!-- PSD -->
+    </div>
+  </div>
   <div class="bio">
     <h3>Pankaj Singh Dholaniya, <i> M.Tech., Ph.D.</i> </h3>
     <p class="tag">Assistant Professor
@@ -218,8 +226,8 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--mute);font-si
 <h3>Group members</h3>
 <div class="grid team" style="margin-top:16px">
 <div class="person"><div class="av" style="background:var(--b)">MA</div><h3>Mohammad Ahmad</h3><p class="tag">PhD Student</p></div>
-<div class="person"><div class="av" style="background:var(--c)">ARD</div><h3>A. Renuka Devi</h3><p class="tag">PhD Student</p></div>
-<div class="person"><div class="av" style="background:var(--c)">KB</div><h3>Kridsya Buasra (Nudi)</h3><p class="tag">PhD Student</p></div>
+<div class="person"><div class="av" style="background:var(--c)"><img src="./images/members/Renuka.jpeg" style="width:90%; height:90%; overflow:hidden; position: relative; object-fit: cover;"/></div><h3>A. Renuka Devi</h3><p class="tag">PhD Student</p></div>
+<div class="person"><div class="av" style="background:var(--c)"><img src="./images/members/Nudi.jpeg" style="width:90%; height:90%; overflow:hidden; position: relative; object-fit: cover;"/></div><h3>Kridsya Buasra (Nudi)</h3><p class="tag">PhD Student</p></div>
 <div class="person"><div class="av" style="background:var(--c)">V</div><h3>Vidula</h3><p class="tag">Project Student (M.Tech. Bioinformatics)</p></div>
 <div class="person"><div class="av" style="background:var(--c)">V</div><h3>Varsha</h3><p class="tag">Project Student (M.Tech. Bioinformatics)</p></div>
 <div class="person"><div class="av" style="background:var(--c)">M</div><h3>Manas</h3><p class="tag">Project Student (M.Tech. Bioinformatics)</p></div>
@@ -243,7 +251,11 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--mute);font-si
 <div class="personPast"><h3>Sreenidhi R</h3><p class="tag">Researcher,<br>TCS Research Pune</p></div>
 <div class="personPast"><h3>Prashant Kumar</h3><p class="tag">PhD Student, <br>ICGEB, New Delhi</p></div>
 <div class="personPast"><h3>Mallikarjun Ratnam</h3><p class="tag">Researcher, TCS Research Pune</p></div>
-<div class="personPast"><h3>Name Surname</h3><p class="tag">Research associate</p></div>
+<div class="personPast"><h3>Aishwarya</h3><p class="tag">Lead Engineer, <br>GenAI HCL Tech.</p></div>
+<div class="personPast"><h3>Ranjitha G</h3><p class="tag">Researcher, <br>Fernandez Foundation <br></p></div>
+<!--
+<div class="personPast"><h3>Name</h3><p class="tag">, <br></p></div>
+-->
 
 </div></section></div>
 <!-- PUBLICATIONS -->
