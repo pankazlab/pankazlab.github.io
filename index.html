@@ -49,12 +49,15 @@ section{padding:48px 0;border-top:1px solid var(--line)}
 .stream h3{margin:0}.tag{color:var(--mute);font-size:.9rem}
 .team{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
 .person{text-align:left}.av{width:100%;aspect-ratio:1;border-radius:14px;margin-bottom:12px;display:grid;place-items:center;font:700 2.4rem "Bricolage Grotesque",sans-serif;color:var(--bg)}
+.personPI{text-align:left}.av{width:100%;aspect-ratio:1;border-radius:14px;margin-bottom:12px;display:grid;place-items:center;font:700 2.4rem "Bricolage Grotesque",sans-serif;color:var(--bg)}
 .personPast{text-align:left}.av{width:100%;aspect-ratio:1;border-radius:14px;margin-bottom:12px;display:grid;place-items:center;font:700 2.4rem "Bricolage Grotesque",sans-serif;color:var(--bg)}
 .pub{display:grid;grid-template-columns:64px 1fr;gap:16px;padding:20px 0;border-top:1px solid var(--line)}
 .pub b{font:700 1.3rem "Bricolage Grotesque",sans-serif;color:var(--a)}.pub p{margin:0;color:var(--mute)}
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
 .chips button{font:inherit;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);padding:6px 14px;border-radius:999px;cursor:pointer}
 .chips button[aria-pressed=true]{background:var(--a);border-color:var(--a);color:var(--bg)}
+.chips .right{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
 label{display:block;font-weight:500;margin:0 0 16px}
 input,textarea,select{display:block;width:100%;max-width:480px;font:inherit;padding:10px 12px;margin-top:6px;border:1.5px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink)}
 
@@ -80,7 +83,11 @@ input,textarea,select{display:block;width:100%;max-width:480px;font:inherit;padd
 .fl{display:flex;gap:16px;background:#FFFDF9;border-radius:14px;padding:12px 16px}
 .fl img{height:84px;width:auto;display:block}
 .foot p{margin:0;flex:1 1 280px}
-.pi{display:grid;grid-template-columns:minmax(200px,253px) 1fr;gap:24px;align-items:stretch;margin:16px 0 40px}
+/* Photo boxes: members use --m; the PI box is 20px larger in width and height */
+:root{--m:250px}
+.team .av{width:var(--m);max-width:100%}
+.pi{display:grid;grid-template-columns:calc(var(--m) + 20px) 1fr;gap:24px;align-items:stretch;margin:16px 0 40px}
+.pi .av{width:calc(var(--m) + 20px);max-width:100%}
 .bio{background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--a);border-radius:14px;padding:24px 28px}
 .bio h3{font-size:1.6rem;margin-bottom:.1em}.bio p{max-width:none}
 @media(max-width:760px){.pi{grid-template-columns:1fr}}
@@ -162,21 +169,23 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--mute);font-si
   </figure>
 
   <figure class="slide" role="group" aria-roledescription="slide" aria-label="2 of 4">
-    <svg viewBox="0 0 800 320" role="img" aria-label="Illustration: Cardiac Pathology"><path d="M30 170 H220 l20 -22 l20 22 H340 l20 36 l40 -130 l40 180 l20 -86 H520 l20 -26 l30 26 H770" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke="var(--b)"/><path d="M30 250 H770" stroke="var(--line)" stroke-width="2" stroke-dasharray="4 8"/></svg>
+    <!-- <svg viewBox="0 0 800 320" role="img" aria-label="Illustration: Cardiac Pathology"><path d="M30 170 H220 l20 -22 l20 22 H340 l20 36 l40 -130 l40 180 l20 -86 H520 l20 -26 l30 26 H770" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke="var(--b)"/><path d="M30 250 H770" stroke="var(--line)" stroke-width="2" stroke-dasharray="4 8"/></svg>-->
+    <img src="./images/ImageAnalysis.jpg" />
     <figcaption>02 · Cardiac Pathology</figcaption>
   </figure>
 
   <figure class="slide" role="group" aria-roledescription="slide" aria-label="3 of 4">
     <!--<svg viewBox="0 0 800 320" role="img" aria-label="Illustration: AI/ML for Discovery"><g id="nn"></g></svg>-->
-    <img src="./images/ImageAnalysis.jpg" />
+    <img src="./images/Movement-traces.gif" />
     <figcaption>03 · AI/ML for Discovery</figcaption>
   </figure>
-
+<!--
   <figure class="slide" role="group" aria-roledescription="slide" aria-label="4 of 4">
      <svg viewBox="0 0 800 320" role="img" aria-label="Illustration: Theoretical and Computational Models"><path d="M30 160 C110 40 190 40 270 160 S430 280 510 160 S690 40 770 160" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke="var(--c)"/><path d="M30 160 C110 280 190 280 270 160 S430 40 510 160 S690 280 770 160" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke="var(--a)" stroke-dasharray="2 10"/><g fill="var(--b)"><circle cx="270" cy="160" r="10"/><circle cx="510" cy="160" r="10"/><circle cx="30" cy="160" r="10"/><circle cx="770" cy="160" r="10"/></g></svg>
-    <!-- <img src="./images/ImageAnalysis.jpg" /> -->
+    <img src="./images/ImageAnalysis.jpg" />
     <figcaption>04 · Theoretical and Computational Models</figcaption>
   </figure>
+-->
 </div>
 <button class="sbtn prev" id="prev" aria-label="Previous slide">‹</button><button class="sbtn next" id="next" aria-label="Next slide">›</button>
 <div class="dots" id="dots"></div></div>
@@ -203,7 +212,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--mute);font-si
 <section style="border:0"><h2>People</h2>
 <h3>Principal investigator</h3>
 <div class="pi">
-  <div class="person">
+  <div class="personPI">
     <div class="av" style="background:var(--a)">
       <img src="./images/members/PSD-1.jpg" style="width:94%; height:94%; overflow:hidden; position: relative; object-fit: cover;"/>
       <!-- PSD -->
@@ -272,42 +281,54 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--mute);font-si
   <button aria-pressed="false" data-y="2024">2024</button>
   <button aria-pressed="false" data-y="2023">2023</button>
   <button aria-pressed="false" data-y="Older">Older...</button>
+  <!-- <button aria-pressed="false" data-y="Older-1">2023 & Older...</button> -->
+  <span class="right" role="group" aria-label="Filter by group">
+    <button aria-pressed="false" data-g="lab">Lab Publications</button>
+    <button aria-pressed="false" data-g="collab">Publications in Collaborations</button>
+  </span>
 </div>
+<!-- Each publication needs data-g="lab" (Lab Publications) or data-g="collab" (Publications in Collaborations), plus data-y for its year. -->
 <div id="pubs">
-<div class="pub" data-y="2026"><b>2026</b><div><h3>Hierarchically structured nanocomposite cardiac patch for localized therapeutic delivery of bFGF for myocardial repair</h3><p>Syed Baseeruddin Alvi, <u>Pankaj Singh Dholaniya</u>, Helena Islam, Ayza Choudhry, Abbey Forehand, Muhamad Mergaye, Xianyao Xu, Divya Sridharan, Britani N Blackstone, Thomas J Hund, Heather M Powell, Onur Kanisicak, Mahmood Khan.  <br><i>Journal of Nanobiotechnology.</i> <a href="https://doi.org/10.1186/s12951-026-05028-3" target="_blank">DOI: 10.1186/s12951-026-05028-3</a></p></div></div>
-<div class="pub" data-y="2026"><b>2026</b><div><h3>Identification of genes associated with smell dysfunction in Parkinson’s disease</h3><p>Md Zainul Ali, Manjari Kiran, <u>Pankaj Singh Dholaniya<sup>*</sup></u>. <br><i>Clinical Parkinsonism & Related Disorders</i> <a href="https://www.sciencedirect.com/science/article/pii/S2590112526000332" target="_blank">DOI: 10.1016/j.prdoa.2026.100453</a></p></div></div>
-<div class="pub" data-y="2026"><b>2026</b><div><h3>Interpretable Symptom-Based Machine Learning for Parkinson’s Disease Prediction: A Feasibility Study</h3><p>Md Zainul Ali, <u>Pankaj Singh Dholaniya <sup>*</sup></u>. <br><i>medRxiv.</i> <a href="https://doi.org/10.64898/2026.05.15.26352866" target="_blank">DOI: 10.64898/2026.05.15.26352866</a></p></div></div>
-<div class="pub" data-y="2026"><b>2026</b><div><h3>Deletion of TOP2B Promoter using CRISPR-Cas9 induces Senescence in HEK 293T Cells</h3><p>Neha Saroj, Harshitha Velangani, Shashi Kiran, <u>Pankaj Singh Dholaniya<sup>*</sup></u>. <br><i>Biochemistry and Biophysics Reports.</i> <a href="https://doi.org/10.1016/j.bbrep.2026.102620" target="_blank">DOI: 10.1016/j.bbrep.2026.102620</a></p></div></div>
-<div class="pub" data-y="2026"><b>2026</b><div><h3>Transcriptional remodeling of cardiomyocytes and fibroblasts during post-myocardial infarction recovery</h3><p><u>Pankaj Singh Dholaniya</u>, Helena Islam, Syed Baseeruddin Alvi, Muhamad Mergaye, Onur Kanisicak, Mahmood Khan. <br><i>Scientific Reports</i> <a href="https://doi.org/10.1038/s41598-026-41631-y"  target="_blank">DOI:10.1038/s41598-026-41631-y</a></p></div></div>
-<div class="pub" data-y="2025"><b>2025</b><div><h3>siRNA-mediated knockdown of TOP2B protects hiPSC-derived cardiomyocytes from doxorubicin-induced toxicity</h3><p>Author A, Author C, Neha Saroj, <u>Pankaj Singh Dholaniya<sup>*</sup></u>, Syed Baseeruddin Alvi, Divya Sridharan, Navisha Soni, Syed Abdullah Ashraf, Ayza Choudhry, Yusuf Ali Ashraf, Sarah Kathleen Mikula, Dinender Kumar Singla, Mahmood Khan. <br><i>Life sciences.</i> <a href="https://doi.org/10.1016/j.lfs.2025.123595"  target="_blank">DOI: 10.1016/j.lfs.2025.123595</a></p></div></div>
-<div class="pub" data-y="2024"><b>2024</b><div><h3>Fabrication and Optimization of Poly (ε-caprolactone) Microspheres Loaded with S-Nitroso-N-Acetylpenicillamine for Nitric Oxide Delivery</h3><p>Syed Baseeruddin Alvi, Nooruddin Pracha, Mahmoud Shalaan, <u>Pankaj Singh Dholaniya</u>, Muhamad Mergaye, Divya Sridharan, Mahmood Khan. <br><i>Biomedicines.</i> <a href="
+<div class="pub" data-g="collab" data-y="2026"><b>2026</b><div><h3>Hierarchically structured nanocomposite cardiac patch for localized therapeutic delivery of bFGF for myocardial repair</h3><p>Syed Baseeruddin Alvi, <u>Pankaj Singh Dholaniya</u>, Helena Islam, Ayza Choudhry, Abbey Forehand, Muhamad Mergaye, Xianyao Xu, Divya Sridharan, Britani N Blackstone, Thomas J Hund, Heather M Powell, Onur Kanisicak, Mahmood Khan.  <br><i>Journal of Nanobiotechnology.</i> <a href="https://doi.org/10.1186/s12951-026-05028-3" target="_blank">DOI: 10.1186/s12951-026-05028-3</a></p></div></div>
+<div class="pub" data-g="lab" data-y="2026"><b>2026</b><div><h3>Identification of genes associated with smell dysfunction in Parkinson’s disease</h3><p>Md Zainul Ali, Manjari Kiran, <u>Pankaj Singh Dholaniya<sup>*</sup></u>. <br><i>Clinical Parkinsonism & Related Disorders</i> <a href="https://www.sciencedirect.com/science/article/pii/S2590112526000332" target="_blank">DOI: 10.1016/j.prdoa.2026.100453</a></p></div></div>
+<div class="pub" data-g="lab" data-y="2026"><b>2026</b><div><h3>Interpretable Symptom-Based Machine Learning for Parkinson’s Disease Prediction: A Feasibility Study</h3><p>Md Zainul Ali, <u>Pankaj Singh Dholaniya <sup>*</sup></u>. <br><i>medRxiv.</i> <a href="https://doi.org/10.64898/2026.05.15.26352866" target="_blank">DOI: 10.64898/2026.05.15.26352866</a></p></div></div>
+<div class="pub" data-g="lab" data-y="2026"><b>2026</b><div><h3>Deletion of TOP2B Promoter using CRISPR-Cas9 induces Senescence in HEK 293T Cells</h3><p>Neha Saroj, Harshitha Velangani, Shashi Kiran, <u>Pankaj Singh Dholaniya<sup>*</sup></u>. <br><i>Biochemistry and Biophysics Reports.</i> <a href="https://doi.org/10.1016/j.bbrep.2026.102620" target="_blank">DOI: 10.1016/j.bbrep.2026.102620</a></p></div></div>
+<div class="pub" data-g="collab" data-y="2026"><b>2026</b><div><h3>Transcriptional remodeling of cardiomyocytes and fibroblasts during post-myocardial infarction recovery</h3><p><u>Pankaj Singh Dholaniya</u>, Helena Islam, Syed Baseeruddin Alvi, Muhamad Mergaye, Onur Kanisicak, Mahmood Khan. <br><i>Scientific Reports</i> <a href="https://doi.org/10.1038/s41598-026-41631-y"  target="_blank">DOI:10.1038/s41598-026-41631-y</a></p></div></div>
+<div class="pub" data-g="lab" data-y="2025"><b>2025</b><div><h3>siRNA-mediated knockdown of TOP2B protects hiPSC-derived cardiomyocytes from doxorubicin-induced toxicity</h3><p>Author A, Author C, Neha Saroj, <u>Pankaj Singh Dholaniya<sup>*</sup></u>, Syed Baseeruddin Alvi, Divya Sridharan, Navisha Soni, Syed Abdullah Ashraf, Ayza Choudhry, Yusuf Ali Ashraf, Sarah Kathleen Mikula, Dinender Kumar Singla, Mahmood Khan. <br><i>Life sciences.</i> <a href="https://doi.org/10.1016/j.lfs.2025.123595"  target="_blank">DOI: 10.1016/j.lfs.2025.123595</a></p></div></div>
+<div class="pub" data-g="collab" data-y="2024"><b>2024</b><div><h3>Fabrication and Optimization of Poly (ε-caprolactone) Microspheres Loaded with S-Nitroso-N-Acetylpenicillamine for Nitric Oxide Delivery</h3><p>Syed Baseeruddin Alvi, Nooruddin Pracha, Mahmoud Shalaan, <u>Pankaj Singh Dholaniya</u>, Muhamad Mergaye, Divya Sridharan, Mahmood Khan. <br><i>Biomedicines.</i> <a href="
 https://doi.org/10.3390/biomedicines12061363"  target="_blank">DOI:
 10.3390/biomedicines12061363</a></p></div></div>
-<div class="pub" data-y="2024"><b>2024</b><div><h3>Augmenting tomato functional genomics with a genome-wide induced genetic variation resource</h3><p>Prateek Gupta, <u>Pankaj Singh Dholaniya</u>, Kunnappady Princy, Athira Sethu Madhavan, Yellamaraju Sreelakshmi, Rameshwar Sharma. <br><i>Frontiers in Plant Science</i> <a href="https://doi.org/10.3389/fpls.2023.1290937"  target="_blank">DOI: 10.3389/fpls.2023.1290937</a></p></div></div>
-<div class="pub" data-y="Older"><b>2022</b><div><h3>Parkinson's disease gene prioritising using an efficient and biologically appropriate network-based consensus strategy</h3><p>Baby Kumari, <u>Pankaj Singh Dholaniya<sup>*</sup></u>. <br><i>Journal of Computational Science.</i> <a href="https://doi.org/10.1016/j.jocs.2022.101879"  target="_blank">DOI: 10.1016/j.jocs.2022.101879</a></p></div></div>
+<div class="pub" data-g="collab" data-y="2024"><b>2024</b><div><h3>Augmenting tomato functional genomics with a genome-wide induced genetic variation resource</h3><p>Prateek Gupta, <u>Pankaj Singh Dholaniya</u>, Kunnappady Princy, Athira Sethu Madhavan, Yellamaraju Sreelakshmi, Rameshwar Sharma. <br><i>Frontiers in Plant Science</i> <a href="https://doi.org/10.3389/fpls.2023.1290937"  target="_blank">DOI: 10.3389/fpls.2023.1290937</a></p></div></div>
+<div class="pub" data-g="lab" data-y="2023"><b>2023</b><div><h3>Early Diagnosis of Parkinson's Disease: Utility of Animal Models. (Book Chapter)</h3><p>S Neha, Mohammad Ahmad, Baby Kumari, MD Zainul Ali,  <u>Pankaj Singh Dholaniya<sup>*</sup></u> <br><i>Book: Parkinson’s Disease-Animal Models, Current Therapies and Clinical Trials: Animal Models, Current Therapies and Clinical Trials</i> <a href="https://doi.org/10.5772/intechopen.107887"  target="_blank">DOI: 10.5772/intechopen.107887</a></p></div></div>
+<div class="pub" data-g="lab" data-y="Older"><b>2022</b><div><h3>Parkinson's disease gene prioritising using an efficient and biologically appropriate network-based consensus strategy</h3><p>Baby Kumari, <u>Pankaj Singh Dholaniya<sup>*</sup></u>. <br><i>Journal of Computational Science.</i> <a href="https://doi.org/10.1016/j.jocs.2022.101879"  target="_blank">DOI: 10.1016/j.jocs.2022.101879</a></p></div></div>
 
-<div class="pub" data-y="Older"><b>2022</b><div><h3>Oxidative phosphorylation mediated pathogenesis of Parkinson's disease and its implication via Akt signaling</h3><p>MD Zainul Ali,  <u>Pankaj Singh Dholaniya<sup>*</sup></u>. <br><i>Neurochemistry International.</i> <a href="https://doi.org/10.1016/j.neuint.2022.105344"  target="_blank">DOI: 10.1016/j.neuint.2022.105344</a></p></div></div>
-<div class="pub" data-y="Older"><b>2022</b><div><h3>Identifying the candidate genes using co-expression, GO, and machine learning techniques for Alzheimer’s disease</h3><p>Shailendra Sahu, <u>Pankaj Singh Dholaniya</u>, T Sobha Rani. <br><i>Network Modeling Analysis in Health Informatics and Bioinformatics.</i> <a href="https://doi.org/10.1007/s13721-021-00349-9"  target="_blank">DOI: 10.1007/s13721-021-00349-9</a></p></div></div>
-<div class="pub" data-y="Older"><b>2022</b><div><h3>The prevailing role of topoisomerase 2 beta and its associated genes in neurons.</h3><p>S Neha, <u>Pankaj Singh Dholaniya<sup>*</sup></u>. <br><i>Molecular Neurobiology.</i> <a href="https://doi.org/10.1007/s12035-021-02561-0"  target="_blank">DOI: 10.1007/s12035-021-02561-0</a></p></div></div>
-<div class="pub" data-y="Older"><b>2021</b><div><h3>Effect of various sequence descriptors in predicting human proteinprotein interactions using ANN-based prediction models</h3><p><u>Pankaj Singh Dholaniya<sup>*</sup></u>,  Samreen Rizvi. <br><i>Current Bioinformatics.</i> <a href="https://doi.org/10.2174/1574893616666210402114623"  target="_blank">DOI: 10.2174/1574893616666210402114623</a></p></div></div>
-<div class="pub" data-y="Older"><b>2021</b><div><h3>Clinical and whole genome characterization of SARS-CoV-2 in India</h3><p>Radhakrishna Muttineni, Nagamani Kammili, Thrilok Chander Bingi, Raja Rao M, Kalyani Putty, <u>Pankaj Singh Dholaniya</u>, Ravi Kumar Puli, Sunitha Pakalapati, Saritha S, Shekar K, Mallikarjuna Reddy Doodipala, Amit A Upadhyay, Steven E Bosinger, Rama R Amara, Anand K Kondapi. <br><i>PLoS One</i> <a href="https://doi.org/10.1371/journal.pone.0246173"  target="_blank">DOI: 10.1371/journal.pone.0246173</a></p></div></div>
-<div class="pub" data-y="Older"><b>2020</b><div><h3>Reanalysis of genome sequences of tomato accessions and its wild relatives: development of Tomato Genomic Variation (TGV) database integrating SNPs and INDELs polymorphisms</h3><p>Prateek Gupta<sup>1</sup>,  <u>Pankaj Singh Dholaniya<sup>1</sup></u>, Sameera Devulapalli, Nilesh Ramesh Tawari, Yellamaraju Sreelakshmi, Rameshwar Sharma. <br><i>Bioinformatics.</i> <a href="https://doi.org/10.1093/bioinformatics/btaa617"  target="_blank">DOI:10.1093/bioinformatics/btaa617</a></p></div></div>
+<div class="pub" data-g="lab" data-y="Older"><b>2022</b><div><h3>Oxidative phosphorylation mediated pathogenesis of Parkinson's disease and its implication via Akt signaling</h3><p>MD Zainul Ali,  <u>Pankaj Singh Dholaniya<sup>*</sup></u>. <br><i>Neurochemistry International.</i> <a href="https://doi.org/10.1016/j.neuint.2022.105344"  target="_blank">DOI: 10.1016/j.neuint.2022.105344</a></p></div></div>
+<div class="pub" data-g="lab" data-y="Older"><b>2022</b><div><h3>Identifying the candidate genes using co-expression, GO, and machine learning techniques for Alzheimer’s disease</h3><p>Shailendra Sahu, <u>Pankaj Singh Dholaniya</u>, T Sobha Rani. <br><i>Network Modeling Analysis in Health Informatics and Bioinformatics.</i> <a href="https://doi.org/10.1007/s13721-021-00349-9"  target="_blank">DOI: 10.1007/s13721-021-00349-9</a></p></div></div>
+<div class="pub" data-g="lab" data-y="Older"><b>2022</b><div><h3>The prevailing role of topoisomerase 2 beta and its associated genes in neurons.</h3><p>S Neha, <u>Pankaj Singh Dholaniya<sup>*</sup></u>. <br><i>Molecular Neurobiology.</i> <a href="https://doi.org/10.1007/s12035-021-02561-0"  target="_blank">DOI: 10.1007/s12035-021-02561-0</a></p></div></div>
+<div class="pub" data-g="lab" data-y="Older"><b>2021</b><div><h3>Effect of various sequence descriptors in predicting human proteinprotein interactions using ANN-based prediction models</h3><p><u>Pankaj Singh Dholaniya<sup>*</sup></u>,  Samreen Rizvi. <br><i>Current Bioinformatics.</i> <a href="https://doi.org/10.2174/1574893616666210402114623"  target="_blank">DOI: 10.2174/1574893616666210402114623</a></p></div></div>
+<div class="pub" data-g="collab" data-y="Older"><b>2021</b><div><h3>Clinical and whole genome characterization of SARS-CoV-2 in India</h3><p>Radhakrishna Muttineni, Nagamani Kammili, Thrilok Chander Bingi, Raja Rao M, Kalyani Putty, <u>Pankaj Singh Dholaniya</u>, Ravi Kumar Puli, Sunitha Pakalapati, Saritha S, Shekar K, Mallikarjuna Reddy Doodipala, Amit A Upadhyay, Steven E Bosinger, Rama R Amara, Anand K Kondapi. <br><i>PLoS One</i> <a href="https://doi.org/10.1371/journal.pone.0246173"  target="_blank">DOI: 10.1371/journal.pone.0246173</a></p></div></div>
+<div class="pub" data-g="collab" data-y="Older"><b>2020</b><div><h3>Reanalysis of genome sequences of tomato accessions and its wild relatives: development of Tomato Genomic Variation (TGV) database integrating SNPs and INDELs polymorphisms</h3><p>Prateek Gupta<sup>1</sup>,  <u>Pankaj Singh Dholaniya<sup>1</sup></u>, Sameera Devulapalli, Nilesh Ramesh Tawari, Yellamaraju Sreelakshmi, Rameshwar Sharma. <br><i>Bioinformatics.</i> <a href="https://doi.org/10.1093/bioinformatics/btaa617"  target="_blank">DOI:10.1093/bioinformatics/btaa617</a></p></div></div>
 <!--
-<div class="pub" data-y="Older"><b>2022</b><div><h3>Title</h3><p>Author A, Author C, <u>Pankaz<sup>*</sup></u>. <br><i>Journal Name.</i> <a href="#publications"  target="_blank">DOI:</a></p></div></div>
+<div class="pub" data-g="lab" data-y="Older"><b>2022</b><div><h3>Title</h3><p>Author A, Author C, <u>Pankaz<sup>*</sup></u>. <br><i>Journal Name.</i> <a href="#publications"  target="_blank">DOI:</a></p></div></div>
 -->
-</div></section></div>
+</div>
+<p id="pubempty" class="tag" hidden>No publications to show for this selection yet.</p></section></div>
 
 <!-- JOIN -->
 <div class="page" id="join">
 <section style="border:0"><h2>Join us</h2>
 <p class="lead">We welcome students, postdocs and collaborators who work across data, models and experiments.</p>
 <p>Tell us about your background and which research stream interests you. We read every message.</p>
-<form id="f" onsubmit="return false">
-<label>Your name<input id="n" autocomplete="name"></label>
-<label>Email<input id="e" type="email" autocomplete="email"></label>
-<label>I am interested in<select><option>PhD position</option><option>Postdoc position</option><option>Internship or project</option><option>Collaboration</option></select></label>
-<label>Message<textarea rows="5"></textarea></label>
-<button class="btn" type="button" id="s">Send message</button><span id="ok" role="status"></span>
+<!-- The receiving email address is set once in the script at the bottom of this file (FORM_EMAIL). -->
+<form id="f">
+<label>Your name<input id="n" name="name" autocomplete="name" required></label>
+<label>Email<input id="e" name="email" type="email" autocomplete="email" required></label>
+<label>I am interested in<select name="interest"><option>PhD position</option><option>Postdoc position</option><option>Internship or project</option><option>Collaboration</option></select></label>
+<label>Message<textarea name="message" rows="5" required></textarea></label>
+<input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+<input type="hidden" name="_subject" value="New message from the PankazLab website">
+<input type="hidden" name="_template" value="table">
+<button class="btn" type="submit" id="s">Send message</button><span id="ok" role="status"></span>
 </form>
 <p class="tag" style="margin-top:32px">Lab address, department and email go here.</p>
 </section></div>
@@ -317,6 +338,9 @@ https://doi.org/10.3390/biomedicines12061363"  target="_blank">DOI:
 <p>© 2026 PankazLab · The Data Biology Group. <br>Department of Biotechnology and Bioinformatics, School of Life Sciences, University of Hyderabad.</p></div></footer>
 
 <script>
+/* ===== SET THIS ===== Paste the email address that should receive Join-us messages. */
+const FORM_EMAIL = "";   // e.g. "name@university.edu"
+/* ==================== */
 const pages=[...document.querySelectorAll('.page')],links=[...document.querySelectorAll('.links a')];
 function route(){const h=(location.hash||'#home').slice(1);const id=pages.some(p=>p.id===h)?h:'home';
 pages.forEach(p=>p.classList.toggle('on',p.id===id));
@@ -324,10 +348,20 @@ links.forEach(a=>a.getAttribute('href')==='#'+id?a.setAttribute('aria-current','
 document.title=(id==='home'?'':id[0].toUpperCase()+id.slice(1)+' · ')+'PankazLab';window.scrollTo(0,0)}
 addEventListener('hashchange',route);route();
 
-document.querySelectorAll('.chips button').forEach(b=>b.onclick=()=>{
-document.querySelectorAll('.chips button').forEach(x=>x.setAttribute('aria-pressed',x===b));
-document.querySelectorAll('#pubs .pub').forEach(p=>p.style.display=(b.dataset.y==='all'||p.dataset.y===b.dataset.y)?'':'none')});
-document.getElementById('s').onclick=()=>{document.getElementById('ok').textContent=' Template only: connect this form to your email service.'};
+let Y='all',G=null;
+const yb=[...document.querySelectorAll('.chips button[data-y]')],gb=[...document.querySelectorAll('.chips button[data-g]')],emp=document.getElementById('pubempty');
+function applyPubs(){let n=0;document.querySelectorAll('#pubs .pub').forEach(p=>{const ok=(Y==='all'||p.dataset.y===Y)&&(!G||p.dataset.g===G);p.style.display=ok?'':'none';if(ok)n++});emp.hidden=n>0}
+yb.forEach(b=>b.onclick=()=>{Y=b.dataset.y;yb.forEach(x=>x.setAttribute('aria-pressed',x===b));applyPubs()});
+gb.forEach(b=>b.onclick=()=>{G=(G===b.dataset.g)?null:b.dataset.g;gb.forEach(x=>x.setAttribute('aria-pressed',x.dataset.g===G));applyPubs()});
+const jf=document.getElementById('f'),ok=document.getElementById('ok'),sb=document.getElementById('s');
+jf.addEventListener('submit',async e=>{e.preventDefault();
+if(!FORM_EMAIL){ok.textContent=' Email address not set yet. Add it to FORM_EMAIL at the top of the script.';return}
+sb.disabled=true;ok.textContent=' Sending...';
+try{const r=await fetch('https://formsubmit.co/ajax/'+encodeURIComponent(FORM_EMAIL),{method:'POST',headers:{'Accept':'application/json'},body:new FormData(jf)});
+const d=await r.json().catch(()=>({}));
+if(r.ok&&d.success!=='false'){ok.textContent=' Thank you. Your message has been sent.';jf.reset()}else throw new Error()}
+catch(err){ok.textContent=' Sorry, the message could not be sent. Please email us directly at '+FORM_EMAIL+'.'}
+sb.disabled=false});
 
 const cv=document.getElementById('helix'),cx=cv.getContext('2d');
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -349,6 +383,13 @@ tr.addEventListener('scroll',sync);sync();
 document.getElementById('prev').onclick=()=>tr.scrollBy({left:-tr.clientWidth,behavior:bh});
 document.getElementById('next').onclick=()=>tr.scrollBy({left:tr.clientWidth,behavior:bh});
 tr.addEventListener('keydown',e=>{if(e.key==='ArrowRight')document.getElementById('next').click();if(e.key==='ArrowLeft')document.getElementById('prev').click()});
+/* Auto-scroll: one slide every 3 seconds, loops back to the first. Pauses on hover, focus and touch. */
+const SLIDE_MS=5000;let hold=false;
+const sw=tr.parentElement;
+['mouseenter','focusin','touchstart'].forEach(ev=>sw.addEventListener(ev,()=>hold=true,{passive:true}));
+['mouseleave','focusout','touchend'].forEach(ev=>sw.addEventListener(ev,()=>hold=false,{passive:true}));
+if(!reduce)setInterval(()=>{if(hold||document.hidden||!tr.clientWidth)return;
+const i=Math.round(tr.scrollLeft/tr.clientWidth);tr.scrollTo({left:((i+1)%sl.length)*tr.clientWidth,behavior:bh})},SLIDE_MS);
 (function(){const L=[3,4,4,2],g=document.getElementById('nn'),X=[150,330,510,690],P=[];
 L.forEach((n,l)=>{P[l]=[];for(let k=0;k<n;k++)P[l].push([X[l],160+(k-(n-1)/2)*60])});
 let h='';for(let l=0;l<3;l++)P[l].forEach(a=>P[l+1].forEach(b=>h+=`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="var(--line)" stroke-width="2"/>`));
