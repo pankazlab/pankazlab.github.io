@@ -1,2 +1,2 @@
-# pankazsingh.github.io
+# pankazlab.github.io
 Pankaz Lab
